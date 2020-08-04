@@ -1,0 +1,40 @@
+﻿<Window x:Class="CustomControlDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomControlDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <local:MyExpander Header="Header">
+                <TextBlock Text="Content" />
+            </local:MyExpander>
+            <local:ExpanderUsingTrigger Header="Header">
+                <TextBlock Text="Content" />
+            </local:ExpanderUsingTrigger>
+            <local:ExpanderUsingPart Header="Header">
+                <TextBlock Text="Content" />
+            </local:ExpanderUsingPart>
+            <local:ExpanderUsingState Header="Header">
+                <TextBlock Text="Content" />
+            </local:ExpanderUsingState>
+
+            <local:Repeater>
+                <local:RepeaterItem Content="1234999"
+                                    Label="Product ID" />
+                <local:RepeaterItem Content="Power Projector 4713"
+                                    Label="IGNORE" />
+                <local:RepeaterItem Content="Projector (PR)"
+                                    Label="Category" />
+                <local:RepeaterItem Content="A very powerful projector with special features for Internet usability, USB"
+                                    Label="Description" />
+            </local:Repeater>
+
+            <local:Repeater ItemsSource="{x:Static local:Product.Products}"
+                            DisplayMemberPath="Value"
+                            LabelMemberPath="Key" />
+        </StackPanel>
+    </Grid>
+</Window>
